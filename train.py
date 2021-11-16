@@ -76,7 +76,7 @@ def main():
         train(model, train_loader, optimizer, epoch)
         scheduler.step()
 
-    os.makedirs(os.path.split(os.path.abspath(args.out))[0], exist_ok=True)
+    os.makedirs(args.out, exist_ok=True)
     out = os.path.join(args.out, "model.pkl")
     torch.save(model, out, pickle_module=cloudpickle)
 
