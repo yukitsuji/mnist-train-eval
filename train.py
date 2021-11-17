@@ -66,8 +66,6 @@ def main():
 
     print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
     print(args.out)
-    import time
-    time.sleep(180)
     transform = transforms.Compose(
         [transforms.ToTensor(), transforms.Normalize((0.1307,), (0.3081,))]
     )
@@ -85,6 +83,8 @@ def main():
     torch.save(model, out, pickle_module=cloudpickle)
     out = os.path.join(args.out, "model2.pkl")
     torch.save(model, out, pickle_module=cloudpickle)
+    import time
+    time.sleep(180)
 
 
 if __name__ == "__main__":
