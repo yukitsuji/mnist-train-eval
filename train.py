@@ -64,6 +64,7 @@ def main():
     parser.add_argument("--out", type=str, required=True)
     args = parser.parse_args()
 
+    print(args.out)
     transform = transforms.Compose(
         [transforms.ToTensor(), transforms.Normalize((0.1307,), (0.3081,))]
     )
