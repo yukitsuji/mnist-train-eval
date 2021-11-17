@@ -64,7 +64,10 @@ def main():
     parser.add_argument("--out", type=str, required=True)
     args = parser.parse_args()
 
+    print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
     print(args.out)
+    import time
+    time.sleep(180)
     transform = transforms.Compose(
         [transforms.ToTensor(), transforms.Normalize((0.1307,), (0.3081,))]
     )
@@ -79,6 +82,8 @@ def main():
 
     os.makedirs(args.out, exist_ok=True)
     out = os.path.join(args.out, "model.pkl")
+    torch.save(model, out, pickle_module=cloudpickle)
+    out = os.path.join(args.out, "model2.pkl")
     torch.save(model, out, pickle_module=cloudpickle)
 
 
